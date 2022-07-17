@@ -52,5 +52,14 @@ class Date:
         while years_day > self.amount_days[row][month]:
             month += 1
         day = years_day - self.amount_days[row][month - 1]
-        print(f"{(day, month, year)}")
         return (day, month, year)
+    def __add__(self, amount_days: int):
+        new_rel_days = self.relative_days + amount_days
+        new_date = self.getDMY(new_rel_days)
+        print(f"If you add {amount_days} days, it will be {new_date[0]}/{new_date[1]}/{new_date[2]}")
+        return
+    def __sub__(self, amount_days: int): 
+        new_rel_days = self.relative_days - amount_days
+        new_date = self.getDMY(new_rel_days)
+        print(f"If you substract {amount_days} days, it will be {new_date[0]}/{new_date[1]}/{new_date[2]}")
+        return
