@@ -1,9 +1,12 @@
 import Date 
 
-r = Date.Date(22,7,1997)
+pablo = Date.Date(22,7,1997)
+laura = Date.Date(2,8,2001)
 #f = Date.Date(2,13,1920)
 #g = Date.Date(92,10,1950)
 #i = Date.Date(12,4,92)
-print(Date.Date.getDMY(r,144870))
-print(r + 15)
-print(r - 20)
+print(Date.Date.getDMY(pablo,6514))
+print(pablo + 15)
+print(pablo - 20)
+print(pablo)
+print(laura.difference_between_dates(pablo))

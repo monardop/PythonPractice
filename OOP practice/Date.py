@@ -1,3 +1,6 @@
+from numpy import negative
+
+
 class Date:
     base_year = 1601
     amount_days = ((0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365),(0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366))
@@ -57,10 +60,19 @@ class Date:
     def __add__(self, amount_days: int):
         new_rel_days = self.relative_days + amount_days
         new_date = self.getDMY(new_rel_days)
-        print(f"If you add {amount_days} days, it will be {new_date[0]}/{new_date[1]}/{new_date[2]}")
-        return
+        return f"If you add {amount_days} days, it will be {new_date[0]}/{new_date[1]}/{new_date[2]}"
     def __sub__(self, amount_days: int): 
         new_rel_days = self.relative_days - amount_days
         new_date = self.getDMY(new_rel_days)
-        print(f"If you substract {amount_days} days, it will be {new_date[0]}/{new_date[1]}/{new_date[2]}")
-        return
+        return f"If you substract {amount_days} days, it will be {new_date[0]}/{new_date[1]}/{new_date[2]}"
+    def __str__(self):
+        return f"{self.day}/{self.month}/{self.year}"
+    def difference_between_dates(self, otherDate):
+        days = self.relative_days - otherDate.relative_days
+        if days < 0: 
+            return "The second date is older."
+        month = self.month - otherDate.month
+        if month < 0:
+            month = 0
+        year = self.year - otherDate.year
+        return f"There are {days} days, {month} months and {year} years between those dates."
