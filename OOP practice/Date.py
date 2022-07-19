@@ -1,6 +1,6 @@
 class Date:
     base_year = 1601
-    amount_days = (( 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365),(0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366))
+    amount_days = ((0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365),(0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366))
     normal_month = (0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
     leap_month = (0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 
@@ -51,7 +51,8 @@ class Date:
         month = 1
         while years_day > self.amount_days[row][month]:
             month += 1
-        day = years_day - self.amount_days[row][month - 1]
+        month -= 1
+        day = years_day - self.amount_days[row][month]
         return (day, month, year)
     def __add__(self, amount_days: int):
         new_rel_days = self.relative_days + amount_days
