@@ -1,4 +1,5 @@
 import Date 
+import Person
 
 pablo = Date.Date(22,7,1997)
 laura = Date.Date(2,8,2001)
@@ -10,3 +11,6 @@ print(pablo + 15)
 print(pablo - 20)
 print(pablo)
 print(laura.difference_between_dates(pablo))
+
+Pableto = Person.Person("Pablo",(22,7,1997) , 654431416, "M")
+print(Pableto.get_age())

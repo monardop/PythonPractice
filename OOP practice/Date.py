@@ -67,12 +67,15 @@ class Date:
         return f"If you substract {amount_days} days, it will be {new_date[0]}/{new_date[1]}/{new_date[2]}"
     def __str__(self):
         return f"{self.day}/{self.month}/{self.year}"
-    def difference_between_dates(self, otherDate):
+    def difference_between_dates(self, otherDate) -> str:
         days = self.relative_days - otherDate.relative_days
         if days < 0: 
             return "The second date is older."
-        month = self.month - otherDate.month
-        if month < 0:
-            month = 0
         year = self.year - otherDate.year
-        return f"There are {days} days, {month} months and {year} years between those dates."
+        return f"There are {days} days and {year} years between those dates."
+    def get_years(self, otherDate) -> int:
+        days = self.relative_days - otherDate.relative_days
+        if days < 0: 
+            return "The second date is older."
+        year = self.year - otherDate.year
+        return year
