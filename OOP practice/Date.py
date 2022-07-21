@@ -17,7 +17,6 @@ class Date:
         self.day = day
         self.month = month
         self.year = year
-        print(f"Your date is {self.day}/{self.month}/{self.year}. There were {self.relative_days} days from 1601")
 
     def gregorian_days(self, day: int, month: int, year: int) -> int:
         return self.amount_days[self.is_leap(year)][month] + day        

@@ -6,8 +6,12 @@ class Person:
         self.name = name
         self.sex = sex
         self.birthday = birthday
-    def get_age(self) -> str:
+    def get_age(self) -> int:
         today = datetime.now()
         date_today = Date.Date(today.day, today.month, today.year)
+        print(date_today)
         years = date_today.get_years(self.birthday)
-        return f"Today {date_today}: {self.name} is {years} old"
+        if date_today.month <= self.birthday.month: 
+            if date_today.day < self.birthday.day:
+                years -=1
+        return years
