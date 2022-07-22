@@ -1,7 +1,7 @@
 import Date 
 import Person
 
-pablo = Date.Date(22,7,1997)
+#pablo = Date.Date(22,7,1997)
 # laura = Date.Date(2,8,2001)
 #f = Date.Date(2,13,1920)
 #g = Date.Date(92,10,1950)
@@ -12,5 +12,6 @@ pablo = Date.Date(22,7,1997)
 # print(pablo)
 # print(laura.difference_between_dates(pablo))
 
-Pableto = Person.Person("Pablo",pablo , 654431416, "M")
-print(Pableto.get_age())
+Pableto = Person.Person("Pablo",Date.Date(20,7,1997) , 654431416, "M")
+print(Pableto.birthday)
+print(Pableto.days_until_bd())
