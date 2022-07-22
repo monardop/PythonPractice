@@ -68,9 +68,6 @@ class Date:
         return f"{self.day}/{self.month}/{self.year}"
     def get_days(self, otherDate) -> int:
         days = self.relative_days - otherDate.relative_days
-        if days < 0: 
-            print("The second date is older.")
-            return 0
         return days
     def get_years(self, otherDate) -> int:
         days = self.relative_days - otherDate.relative_days
