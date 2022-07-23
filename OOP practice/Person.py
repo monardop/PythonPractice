@@ -18,7 +18,10 @@ class Person:
     def days_until_bd(self) -> int:
         today = datetime.now()
         today_date = Date.Date(today.day, today.month, today.year)
-        birthday_date = Date.Date(self.birthday.day, self.birthday.month, today.year)
+        if self.birthday.day == 29 and self.birthday.month == 2:
+            birthday_date = Date.Date(28, self.birthday.month, today.year)
+        else:   
+            birthday_date = Date.Date(self.birthday.day, self.birthday.month, today.year)
         days = birthday_date.get_days(today_date)
         if days < 0:
             birthday_date = Date.Date(self.birthday.day, self.birthday.month, today.year + 1)
