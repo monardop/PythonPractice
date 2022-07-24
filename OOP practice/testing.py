@@ -12,6 +12,6 @@ import Person
 # print(pablo)
 # print(laura.difference_between_dates(pablo))
 
-Pableto = Person.Person("Pablo",Date.Date(20,7,1997) , 654431416, "M")
+Pableto = Person.Person("Pablo",Date.Date(28,2,1997) , 654431416, "M")
 print(Pableto.birthday)
 print(Pableto.days_until_bd())
