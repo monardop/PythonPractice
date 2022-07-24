@@ -1,10 +1,9 @@
 import Date
 from datetime import datetime
 class Person:
-    def __init__(self,name: str ,birthday: Date, id: int, sex: str):
+    def __init__(self,name: str ,birthday: Date, id: int):
         self.id = id
         self.name = name
-        self.sex = sex
         self.birthday = birthday
         self.age = self.get_age()
     def get_age(self) -> int:
