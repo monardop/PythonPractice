@@ -33,7 +33,7 @@ class Person:
         rnow = datetime.now()
         time_now = my_time.Time(rnow.hour, rnow.minute, 0)
         date_today = Date.Date(rnow.day,rnow.month,rnow.year)
-        days_alive = date_today.get_days(self.birthday) - 1
+        days_alive = date_today.get_days(self.birthday)
         hours_alive = days_alive *24 * 3600
         time_alive = my_time.Time(hours_alive, 0, 0)
         print(time_alive + time_now)

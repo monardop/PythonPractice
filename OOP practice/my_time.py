@@ -12,11 +12,13 @@ class Time:
         self.relTime = self.int_seconds()
     
     def valid_entry(self) -> tuple:
-        entry = input("Insert time in format <<hh:mm:ss>>: ")
-        time_new = entry.split(":")
-        hour, minutes, seconds = time_new
-        if int(minutes) > 59 or int(minutes) < 0 or int(seconds) > 59 or int(seconds) < 0:
-            print("Invalid entry")
+        minutes = -1
+        hour = -1
+        seconds = -1
+        while int(minutes) > 59 or int(minutes) < 0 or int(seconds) > 59 or int(seconds) < 0 or int(hour)<0:
+            entry = input("Insert time in format <<hh:mm:ss>>: ")
+            time_new = entry.split(":")
+            hour, minutes, seconds = time_new
         return (int(hour), int(minutes), int(seconds))
     def int_seconds(self) -> int:
         return ((self.hour * 3600) + (self.minutes * 60) + self.seconds)
@@ -39,18 +41,22 @@ class Time:
         else:
             return f"{hour - 12:02d}:{self.minutes:02d}:{self.seconds:02d} PM"
     def __add__(self, time2):
-        new_time = self.int_seconds() + time2.int_seconds()
-        self.format_time(new_time)
+        seconds = self.int_seconds() + time2.int_seconds()
+        new_time = Time.format_time(seconds)
+        return new_time
     def __sub__(self, time2):
         seconds = self.int_seconds() - time2.int_seconds()
         if seconds < 0:
             print("Wrong entry")
-        self.format_time(seconds)
+            return 0
+        new_time=Time.format_time(seconds)
+        return new_time
     def __str__(self) -> str:
         return f"{self.hour:02d}:{self.minutes:02d}:{self.seconds:02d}"
     def format_time(seconds: int):
         hour = int(seconds/3600)
-        seconds -= hour
+        seconds -= hour*3600
         minutes = int(seconds/60)
-        seconds -= minutes
-        return Time(hour, minutes, seconds)
+        seconds -= minutes*60
+        new_time = Time(hour, minutes, seconds)
+        return new_time
