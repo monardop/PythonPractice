@@ -12,7 +12,7 @@ def binomial_term(n: int, r: int, p: float) -> float:
     return comb(n, r) * pow(p, r) * pow((1 - p), (n-r))
 
 
-def geometrical_term(n: int, p: float) -> float:
+def geometrical_term(n: int,r,  p: float) -> float:
     return p * pow((1-p), n-1)
 
 
@@ -44,3 +44,11 @@ def pascal_media(r, p) -> float:
 
 def pascal_desviation(r, p) -> float:
     return r * (1-p) / pow(p, 2)
+
+def serie_sum(start: int, end: int, n: int, p: float, process) -> float:
+    result = 0
+    for r in range(start, end + 1):
+        result += process(n, r, p)
+    return result
+
+
